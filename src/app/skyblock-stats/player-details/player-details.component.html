@@ -1,0 +1,23 @@
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Auctions">
+        <div infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+            [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()" (scrolledUp)="onUp()">
+            <p *ngFor="let a of auctions" (click)="click(a.uuid)">
+                {{ a.itemName }}<br>
+                Bid: {{a.highestBid}}<br>
+                End: {{a.end}}
+            </p>
+        </div>
+    </mat-tab>
+    <mat-tab label="Bids">
+        <div infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+            [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDownBids()">
+            <p *ngFor="let b of bids" (click)="click(b.uuid)">
+                {{ b.itemName }}<br>
+                Bid: {{b.highestBid}}<br>
+                End: {{b.end}}
+            </p>
+        </div>
+        
+    </mat-tab>
+</mat-tab-group>

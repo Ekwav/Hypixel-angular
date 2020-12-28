@@ -1,0 +1,12 @@
+<mat-form-field>
+    <mat-label>Player or Item name</mat-label>
+    <input matInput type="text" (ngModelChange)="update($event)" [(ngModel)]="value" (focus)="hasFocus = true" (blur)="lostFocus()">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+<div class="suggestions" *ngIf="hasFocus">
+    <div *ngFor="let suggestion of suggestions">
+        <app-suggestion [suggestion]="suggestion"></app-suggestion>
+    </div>
+</div>

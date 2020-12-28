@@ -1,0 +1,10 @@
+<h2>{{auction?.itemName}}</h2>
+<p>Price: {{auction?.highestBidAmount}}</p>
+
+<div>
+    <div *ngFor="let bid of auction?.bids">
+        {{bid.bidder}}<br>
+        {{bid.amount}}<br>
+        {{bid.timestamp}}
+    </div>
+</div>
