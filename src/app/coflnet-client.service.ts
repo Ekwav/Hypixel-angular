@@ -13,8 +13,8 @@ export class CoflnetClientService {
 
   answerTable: Subscriber<Command>[] = [];
 
-   url = "wss://skyblock-backend.coflnet.com/skyblock";
- // url = "ws://localhost:8008/skyblock";
+  // url = "wss://skyblock-backend.coflnet.com/skyblock";
+  url = "ws://localhost:8008/skyblock";
 
   queue:Command[]=[];
 

@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ItemGraphComponent implements OnInit {
 
   multi: any[];
-  view: any[] = [700, 300];
+  view: any[] = [window.innerWidth, window.innerHeight -200];
 
   // options
   legend: boolean = false;
@@ -27,6 +27,7 @@ export class ItemGraphComponent implements OnInit {
   yAxisLabel: string = 'Price';
   timeline: boolean = true;
   curve : any;
+  totalAverage : number = 0;
 
   colorScheme = {
     domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
@@ -43,6 +44,7 @@ export class ItemGraphComponent implements OnInit {
         var yesterday = new Date((new Date()).getTime() - 1000 * 60 * 60 * 24);
         data.getItemData(this.itemTag, yesterday, new Date()).subscribe(r => {
           this.multi = this.transformForGraph(r);
+          this.totalAverage = r.reduce(( accumVariable, curValue) => accumVariable + curValue.price,0) / r.length;
         });
       })
 

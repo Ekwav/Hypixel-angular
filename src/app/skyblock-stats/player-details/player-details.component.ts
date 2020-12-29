@@ -10,18 +10,17 @@ import { PlayerBidsResponse } from '../Data/player-bids-response';
   styleUrls: ['./player-details.component.scss']
 })
 export class PlayerDetailsComponent implements OnInit {
-  array = [];
-  sum = 100;
-  throttle = 300;
+
+  throttle = 200;
   scrollDistance = 1;
-  scrollUpDistance = 2;
   direction = "";
-  modalOpen = false;
   auctions : PlayerAuctionsResponse[] = [];
   bids : PlayerBidsResponse[] = [];
   uuid :string;
   offset = 0;
   bidsOffset = 0;
+
+  selectedTab = 0;
   
 
 

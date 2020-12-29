@@ -1,3 +1,26 @@
+<div>
+    <div class="average-display">
+        <mat-card >
+            <div>
+                Average: <span>{{totalAverage | number:'1.0-2'}}</span>
+            </div>
+        </mat-card>
+        <mat-card>
+            <div>
+                Average: <span>{{totalAverage | number:'1.0-2'}}</span>
+            </div>
+        </mat-card>
+        <mat-card>
+            <div>
+                <button mat-button>24 hours</button>
+                <button mat-button>1 month</button>
+                <button mat-button>All time</button>
+
+            </div>
+        </mat-card>
+
+    </div>
+</div>
 <ngx-charts-line-chart
   [view]="view"
   [scheme]="colorScheme"
@@ -13,6 +36,8 @@
   [curve]="curve"
   (select)="onSelect($event)"
   (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)"
-  >
+  (deactivate)="onDeactivate($event)">
 </ngx-charts-line-chart>
+<span style="visibility: hidden; font-size: 1px;">x</span>
+
+

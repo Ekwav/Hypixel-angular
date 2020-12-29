@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Auction } from '../Data/auction';
+import { PlayerAuctionsResponse } from '../Data/player-auctions-response';
 
 @Component({
   selector: 'app-auction-thumbnail',
@@ -8,11 +11,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class AuctionThumbnailComponent implements OnInit {
 
   @Input()
-  public auction: any;
+  public auction: PlayerAuctionsResponse;
+  @Input()
+  public highestOwn : number = 0;
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
+  }
+
+  click(uuid:string) {
+    this.router.navigate(["auction",uuid]);
   }
 
 }

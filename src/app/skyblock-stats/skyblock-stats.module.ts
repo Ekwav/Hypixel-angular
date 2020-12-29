@@ -9,23 +9,29 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { SuggestionComponent } from './suggestion/suggestion.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AuctionThumbnailComponent } from './auction-thumbnail/auction-thumbnail.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { BidElementComponent } from './auction-details/bid-element/bid-element.component';
+import { EnchantmentComponent } from './auction-details/enchantment/enchantment.component';
 
 
 
 @NgModule({
-  declarations: [SearchBoxComponent, ItemGraphComponent, AuctionDetailsComponent, PlayerDetailsComponent, SuggestionComponent, AuctionThumbnailComponent],
+  declarations: [SearchBoxComponent, ItemGraphComponent, AuctionDetailsComponent, PlayerDetailsComponent, SuggestionComponent, AuctionThumbnailComponent, BidElementComponent, EnchantmentComponent],
   imports: [
     CommonModule,
     NgxChartsModule,
     FormsModule,
     MatInputModule,
     MatIconModule,
+    MatButtonModule,
     ScrollingModule,
     MatTabsModule,
+    MatCardModule,
     InfiniteScrollModule
   ],
   exports: [SearchBoxComponent]

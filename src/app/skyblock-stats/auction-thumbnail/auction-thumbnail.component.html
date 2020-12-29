@@ -1,1 +1,5 @@
-<p>auction-thumbnail works!</p>
+<mat-card (click)="click(auction?.uuid)">
+    {{auction?.itemName}}<br>
+    Highest: {{auction?.highestBid}} <span *ngIf="highestOwn>0">- Own: {{highestOwn}}</span><br>
+    {{auction?.end | date:'short'}}
+</mat-card>

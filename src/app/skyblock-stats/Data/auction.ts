@@ -2,8 +2,9 @@
 import { Enchantments } from "../enchantments.enum";
 import { Reforges } from "../reforges.enum";
 import { Bid } from "./bid";
+import { Enchantment } from "./enchantment";
 export class Auction {
-    id: number;
+    uuid: string;
     claimed: boolean;
     count: number;
     startingBid: number;
@@ -16,7 +17,7 @@ export class Auction {
     highestBidAmount: number;
     bids: Bid[];
     anvilUses: number;
-    enchantments: Enchantments[];
+    enchantments: Enchantment[];
     nbtData: any;
     itemCreatedAt: Date;
     reforge: Reforges;

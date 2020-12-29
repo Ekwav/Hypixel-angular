@@ -1,0 +1,12 @@
+<mat-card>
+    <div class="container">
+        <div>
+            <img [src]="playerBodyUrl(bid.bidder)">
+        </div>
+        <div>
+            <span (click)="showPlayer(bid.bidder)">{{name}}</span><br>
+            {{bid.amount}}<br>
+            {{bid.timestamp | date:'short'}}
+        </div>
+    </div>
+</mat-card>

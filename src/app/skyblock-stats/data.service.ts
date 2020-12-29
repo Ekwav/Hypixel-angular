@@ -67,4 +67,9 @@ export class DataService {
   public trackSuggestion(suggestion:Suggestion) {
     return this.client.send("trackSearch",{id:suggestion.id,type:suggestion.type}).subscribe();
   }
+
+  public playerName(uuid:string) : Observable<string> {
+    return this.client.send("playerName",uuid)
+      .pipe(map(command => command.deserialized as string  ?? uuid));
+  }
 }

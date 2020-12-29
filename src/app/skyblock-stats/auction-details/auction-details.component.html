@@ -1,10 +1,18 @@
-<h2>{{auction?.itemName}}</h2>
-<p>Price: {{auction?.highestBidAmount}}</p>
+<mat-card>
+    <h2 (click)="navigateToItem()">{{auction?.itemName}} <span class="bin" *ngIf="auction?.bin">BIN</span></h2>
+    <p>Price: {{auction?.highestBidAmount}}</p>
+    <p>Count: {{auction?.count}}</p>
+    <p>StartingBid: {{auction?.startingBid}}</p>
+    <p>Start: {{auction?.start | date:'short'}}</p>
+    <p>End: {{auction?.end | date:'short'}}</p>
+    <p (click)="navigateToSeller()">Auctioneer: <span *ngIf="auction !=null">{{sellerName }}</span></p>
+    <div *ngIf="auction?.enchantments != null">
+        <h3>Enchantments</h3>
+        <app-enchantment *ngFor="let ench of auction?.enchantments" [enchantment]="ench"></app-enchantment>
+    </div>
+</mat-card>
 
 <div>
-    <div *ngFor="let bid of auction?.bids">
-        {{bid.bidder}}<br>
-        {{bid.amount}}<br>
-        {{bid.timestamp}}
-    </div>
+    <app-bid-element *ngFor="let bid of auction?.bids" [bid]="bid"></app-bid-element>
+
 </div>
